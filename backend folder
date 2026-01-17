@@ -1,0 +1,25 @@
+Streamers/
+├── backend/              # All Django backend code
+│   ├── manage.py
+│   ├── core/             # Django project settings (settings.py, urls.py, wsgi.py)
+│   ├── api/              # Django app (models, views, serializers, urls)
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── serializers.py
+│   │   └── urls.py
+│   └── requirements.txt  # Python dependencies
+├── frontend/             # React frontend (later)
+│   ├── src/
+│   └── package.json
+└── README.md             # Documentation
+
+cd Streamers
+mkdir backend
+cd backend
+django-admin startproject core 
+python manage.py startapp api
+pip install django djangorestframework psycopg2-binary
+pip freeze > requirements.txt
+git add backend/
+git commit -m "Add backend Django project structure"
+git push origin main
