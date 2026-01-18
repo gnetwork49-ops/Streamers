@@ -1,16 +1,29 @@
-name: streamers
+name: Greetings
 
-on: [pull_request_target, issues]
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
 
 jobs:
   greeting:
     runs-on: ubuntu-latest
-    permissions;concurrency: 
-      issues: write
-      pull-requests: write
     steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: "Message that will be displayed on users' first issue"
-        pr-message: "Message that will be displayed on users' first pull request"
+      - name: Send greeting
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            👋 Hey there, welcome to **Streamers**!  
+            Thanks for opening your first issue 🎉  
+            👉 Check out our [contribution guide](CONTRIBUTING.md) to see how you can get involved.  
+            🚀 We’re excited to hear your ideas!
+          pr-message: |
+            🎉 Woohoo! Your first pull request is live!  
+            🙌 Thanks for contributing to **Streamers**.  
+            🔍 Our team will review it soon.  
+            💡 Meanwhile, feel free to explore our [docs](README.md) and join the conversation!
+
+
+
